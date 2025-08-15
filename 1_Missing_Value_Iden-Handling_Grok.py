@@ -55,6 +55,7 @@ def determine_imputation_strategy(df_column, total_records):
         "Best Value for Imputation": best_value
     }
 
+print('file_path is -->',file_path)
 data = pd.read_csv(file_path)
 total_records = data.shape[0]
 missing_value_columns = [col for col in data.columns if data[col].isnull().sum() > 0]
