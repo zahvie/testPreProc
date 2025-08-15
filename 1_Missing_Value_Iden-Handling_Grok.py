@@ -6,7 +6,21 @@ Created on Apr 8, 2025
 import pandas as pd
 from sklearn.impute import SimpleImputer
 from scipy.stats import shapiro
+from pathlib import Path
 
+
+# Default: local file path (Windows)
+local_path = r"D:\Python\Thesis\ExSTraCS\test\DataSets\Real\Data\PLC_Data\PLC_Data.csv"
+
+# Alternative: Colab path
+colab_path = "/content/data/loan_approval_data.csv"
+
+# Decide which one to use
+if os.path.exists(colab_path):
+    file_path = colab_path
+else:
+    file_path = local_path
+    
 def determine_imputation_strategy(df_column, total_records):
     num_missing = df_column.isnull().sum()
     missing_percentage = (num_missing / total_records) * 100
@@ -34,7 +48,11 @@ def determine_imputation_strategy(df_column, total_records):
         "Best Value for Imputation": best_value
     }
 
-file_path = r"D:\Python\Thesis\ExSTraCS\test\DataSets\Real\Data\PLC_Data\PLC_Data.csv"
+# Decide which one to use
+if os.path.exists(colab_path):
+    file_path = colab_path
+else:
+    file_path = local_path
 
 data = pd.read_csv(file_path)
 total_records = data.shape[0]
