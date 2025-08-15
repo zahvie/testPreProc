@@ -17,21 +17,27 @@ except ImportError:
 
 print("Running in Google Colab?", in_colab)
 
-
 # Default: local file path (Windows)
 local_path = r"D:\Python\Thesis\ExSTraCS\test\DataSets\Real\Data\Loan Approval Data\loan_approval_data.csv"
 
 # Alternative: Colab path
 colab_path = "/content/data/loan_approval_data.csv"
+
 print('Current folder is-->',pwd)
 # Decide which one to use
 if in_colab:
-    file_path = colab_path
-    print("OS Path",os.path.exists(colab_path))
-    print("Google Colab file is used", in_colab)
+    if os.path.exists(colab_path):
+        print("✅ Running in Colab & file exists:", colab_path)
+        file_path = colab_path
+        print("OS Path",os.path.exists(colab_path))
+        print("Google Colab file is used", in_colab)
 else:
+    print("⚠ Running in Colab but file not found:", colab_path)
     file_path = local_path
     print("OS Path",file_path)
+    print("💻 Not running in Colab")
+
+print("Current working directory:", os.getcwd())
 
 # Decide which one to use
 if os.path.exists(colab_path):
@@ -41,8 +47,10 @@ else:
    
 if os.path.exists(colab_path):
     print("✅ File found:", colab_path)
+    print("Current working directory:", os.getcwd())
 else:
     print("❌ File not found:", colab_path)
+    print("Current working directory:", os.getcwd())
 
 
  
