@@ -19,7 +19,9 @@ colab_path = "/content/data/loan_approval_data.csv"
 # Decide which one to use
 if os.path.exists(colab_path):
     file_path = colab_path
+    print("OS Path",os.path.exists(colab_path))
 else:
+    print("OS Path",file_path)
     file_path = local_path
 
 # Decide which one to use
