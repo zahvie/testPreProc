@@ -9,17 +9,26 @@ from scipy.stats import shapiro
 from pathlib import Path
 import os
 
+try:
+    import google.colab
+    in_colab = True
+except ImportError:
+    in_colab = False
+
+print("Running in Google Colab?", in_colab)
+
 
 # Default: local file path (Windows)
 local_path = r"D:\Python\Thesis\ExSTraCS\test\DataSets\Real\Data\Loan Approval Data\loan_approval_data.csv"
 
 # Alternative: Colab path
 colab_path = "/content/data/loan_approval_data.csv"
-
+print('Current folder is-->',pwd)
 # Decide which one to use
-if os.path.exists(colab_path):
+if in_colab:
     file_path = colab_path
     print("OS Path",os.path.exists(colab_path))
+    print("Google Colab file is used", in_colab)
 else:
     file_path = local_path
     print("OS Path",file_path)
@@ -35,13 +44,6 @@ if os.path.exists(colab_path):
 else:
     print("❌ File not found:", colab_path)
 
-try:
-    import google.colab
-    in_colab = True
-except ImportError:
-    in_colab = False
-
-print("Running in Google Colab?", in_colab)
 
  
 '''
