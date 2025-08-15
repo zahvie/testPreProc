@@ -23,7 +23,6 @@ local_path = r"D:\Python\Thesis\ExSTraCS\test\DataSets\Real\Data\Loan Approval D
 # Alternative: Colab path
 colab_path = "/content/data/loan_approval_data.csv"
 
-print('Current folder is-->',pwd)
 # Decide which one to use
 if in_colab:
     if os.path.exists(colab_path):
