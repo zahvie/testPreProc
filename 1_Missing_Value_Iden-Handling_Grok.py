@@ -29,7 +29,22 @@ if os.path.exists(colab_path):
     file_path = colab_path
 else:
     file_path = local_path
-    
+   
+if os.path.exists(colab_path):
+    print("✅ File found:", colab_path)
+else:
+    print("❌ File not found:", colab_path)
+
+try:
+    import google.colab
+    in_colab = True
+except ImportError:
+    in_colab = False
+
+print("Running in Google Colab?", in_colab)
+
+ 
+'''
 def determine_imputation_strategy(df_column, total_records):
     num_missing = df_column.isnull().sum()
     missing_percentage = (num_missing / total_records) * 100
@@ -81,3 +96,4 @@ data.to_csv(file_path.replace(".csv", "_imputed.csv"), index=False)
 
 print(f"Missing values report saved to: {report_file_path}")
 print(f"Imputed dataset saved to: {file_path.replace('.csv', '_imputed.csv')}")
+'''
