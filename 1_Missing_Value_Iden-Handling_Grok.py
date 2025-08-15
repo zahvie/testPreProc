@@ -21,7 +21,7 @@ print("Running in Google Colab?", in_colab)
 local_path = r"D:\Python\Thesis\ExSTraCS\test\DataSets\Real\Data\Loan Approval Data\loan_approval_data.csv"
 
 # Alternative: Colab path
-colab_path = "/content/data/loan_approval_data.csv"
+colab_path = "/content/repo/data/loan_approval_data.csv"
 
 # Decide which one to use
 if in_colab:
