@@ -21,8 +21,8 @@ if os.path.exists(colab_path):
     file_path = colab_path
     print("OS Path",os.path.exists(colab_path))
 else:
-    print("OS Path",file_path)
     file_path = local_path
+    print("OS Path",file_path)
 
 # Decide which one to use
 if os.path.exists(colab_path):
